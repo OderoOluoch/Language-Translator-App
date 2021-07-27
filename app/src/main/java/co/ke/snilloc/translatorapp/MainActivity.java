@@ -2,7 +2,6 @@ package co.ke.snilloc.translatorapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.accounts.Account;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import co.ke.snilloc.translatorapp.ui.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
     //hook views
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, AccountActivity.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
                 //kill this
                 finish();

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">TranslatorApp</string>
     <string name="app_loading">LOADING</string>
+    <string name="app_forgotPassword">Forgot Password?</string>
+    <string name="app_notMember">Not a member?</string>
+    <string name="app_login">Log In</string>
+    <string name="app_createAccount">Create account</string>
+    <string name="app_member">Already a member?</string>
 </resources>
