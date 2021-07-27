@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TranslatorApp</string>
+    <string name="app_loading">LOADING</string>
 </resources>
