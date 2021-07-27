@@ -1,5 +1,6 @@
 package co.ke.snilloc.translatorapp.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,8 +9,14 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,6 +29,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.LoginForgotPasswordTextView) TextView mLoginForgotPasswordTextView;
     @BindView(R.id.LoginCreateAccountTextView) TextView mLoginCreateAccountTextView;
     @BindView(R.id.LoginButton) Button mLoginButton;
+    @BindView(R.id.LoginProgressBar) ProgressBar mLoginProgressBar;
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +39,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         ButterKnife.bind(this);
+
+        mAuth = FirebaseAuth.getInstance();
 
         //set clickable views
         mLoginButton.setOnClickListener(this);
@@ -72,5 +84,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             mLoginPasswordEditText.requestFocus();
             return;
         }
+
+        //make progress bar visible
+        mLoginProgressBar.setVisibility(View.VISIBLE);
+
+
+        //firebase authentication with email and password
+        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    startActivity(new Intent(LoginActivity.this,TranslatorActivity.class));
+                    Toast.makeText(LoginActivity.this, "Logged in", Toast.LENGTH_SHORT).show();
+
+                    //stop progress bar
+                    mLoginProgressBar.setVisibility(View.GONE);
+
+                }else{
+                    Toast.makeText(LoginActivity.this, "Failed to login, Try again", Toast.LENGTH_SHORT).show();
+
+                    //stop progress bar
+                    mLoginProgressBar.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 }
