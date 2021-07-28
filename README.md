@@ -26,6 +26,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/l00pinfinity)
+Your Name - [Collins Boit](https://twitter.com/l00pinfinity)
 
-Project Link: [https://github.com/l00pinfinity](https://github.com/l00pinfinity)
+Project Link: [https://github.com/l00pinfinity/Language-Translator-App](https://github.com/l00pinfinity/Language-Translator-App)
