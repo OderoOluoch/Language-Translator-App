@@ -72,6 +72,18 @@ public class TranslatorActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //enables user to copy the translated text
+        mTextTranslatedTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clipData = ClipData.newPlainText("TranslatedText",mTextTranslatedTextView.getText().toString());
+                clipboardManager.setPrimaryClip(clipData);
+
+                Toast.makeText(TranslatorActivity.this, "Copied", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }
