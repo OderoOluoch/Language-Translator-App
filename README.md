@@ -1,14 +1,80 @@
 # Language-Translator-App
 
-Translator App translates input text and returns translated text.
+Translator App is a translation app. Get translation in over 60 languages, get to know who to say "hello" in other languages.
 
 ## About The Project
-
-<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 ### Built With
 
 * Java
+* Firebase
+* TranslateAPI Library
+
+### Supported languages
+* The app currently supports more than 60 different languages:
+- Afrikaans af
+- Albanian sq
+- Amharic am
+- Arabic ar
+- Armenian hy
+- Azerbaijani az
+- Basque eu
+- Belarusian be
+- Bengali bn
+- Bulgarian bg
+- Catalan ca
+- Chinese (Simplified) zh-CN (BCP-47)
+- Chinese (Traditional) zh-TW (BCP-47)
+- Croatian hr
+- Czech cs
+- Danish da
+- Dutch nl
+- English en
+- Estonian et
+- Finnish fi
+- French fr
+- Galician gl
+- Georgian ka
+- German de
+- Greek el
+- Gujarati gu
+- Haitian Creole ht
+- Hebrew he**
+- Hindi hi
+- Hungarian hu
+- Icelandic is
+- Indonesian id
+- Irish ga
+- Italian it
+- Japanese ja
+- Kannada kn
+- Korean ko
+- Latin la
+- Latvian lv
+- Lithuanian lt
+- Macedonian mk
+- Malay ms
+- Maltese mt
+- Norwegian no
+- Persian fa
+- Polish pl
+- Portuguese (Portugal, Brazil) pt
+- Romanian ro
+- Russian ru
+- Serbian sr
+- Slovak sk
+- Slovenian sl
+- Spanish es
+- Swahili sw
+- Tamil ta
+- Telugu te
+- Thai th
+- Turkish tr
+- Ukrainian uk
+- Urdu ur
+- Vietnamese vi
+- Welsh cy
+- Yiddish yi
 
 ## Contributing
 
