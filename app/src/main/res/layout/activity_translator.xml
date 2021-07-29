@@ -58,4 +58,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextInputEditText" />
 
+    <ProgressBar
+        android:id="@+id/TranslateProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/TranslateButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/TextInputEditText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
