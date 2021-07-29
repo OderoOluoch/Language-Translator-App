@@ -17,6 +17,7 @@ import co.ke.snilloc.translatorapp.R;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener{
     //hook views
+    @BindView(R.id.SignupUsernameEditText) EditText mSignupUsernameEditText;
     @BindView(R.id.SignupEmailAddressEditText) EditText mSignupEmailAddressEditText;
     @BindView(R.id.SignupPasswordEditText) EditText mSignupPasswordEditText;
     @BindView(R.id.SignupConfirmPasswordEditText) EditText mSignupConfirmPasswordEditText;
