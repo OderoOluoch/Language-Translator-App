@@ -7,8 +7,10 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,7 +39,7 @@ public class TranslatorActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.languages_supported, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.languages_supported, android.R.layout.simple_spinner_item);
 
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -52,11 +54,10 @@ public class TranslatorActivity extends AppCompatActivity {
                 String userLanguage = mSpinner.getSelectedItem().toString();
 
 
-
-                if (userInput.isEmpty()){
+                if (userInput.isEmpty()) {
                     Toast.makeText(TranslatorActivity.this, "Enter text to translate", Toast.LENGTH_SHORT).show();
-                }else{
-                    TranslateAPI translateAPI = new TranslateAPI(Language.AUTO_DETECT,Language.AFRIKAANS,userInput);
+                } else {
+                    TranslateAPI translateAPI = new TranslateAPI(Language.AUTO_DETECT, Language.AFRIKAANS, userInput);
 
                     translateAPI.setTranslateListener(new TranslateAPI.TranslateListener() {
                         @Override
@@ -78,7 +79,7 @@ public class TranslatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clipData = ClipData.newPlainText("TranslatedText",mTextTranslatedTextView.getText().toString());
+                ClipData clipData = ClipData.newPlainText("TranslatedText", mTextTranslatedTextView.getText().toString());
                 clipboardManager.setPrimaryClip(clipData);
 
                 Toast.makeText(TranslatorActivity.this, "Copied", Toast.LENGTH_SHORT).show();
@@ -86,4 +87,25 @@ public class TranslatorActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if (id == R.id.action_login){
+            accountLogin();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void accountLogin() {
+        startActivity(new Intent(TranslatorActivity.this,LoginActivity.class));
+        Toast.makeText(this, "Log in to your account", Toast.LENGTH_SHORT).show();
+    }
 }
