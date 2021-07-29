@@ -2,6 +2,7 @@ package co.ke.snilloc.translatorapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,12 +12,13 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import co.ke.snilloc.translatorapp.ui.LoginActivity;
 import co.ke.snilloc.translatorapp.ui.TranslatorActivity;
 
 public class MainActivity extends AppCompatActivity {
     //hook views
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.MainAppNameTextView) TextView mMainAppNameTextView;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.MainAppLoadingTextView) TextView mMainAppLoadingTextView;
 
     Animation topAnim,blinkAnim;
@@ -34,14 +36,11 @@ public class MainActivity extends AppCompatActivity {
         mMainAppNameTextView.setAnimation(topAnim);
         mMainAppLoadingTextView.setAnimation(blinkAnim);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(MainActivity.this, TranslatorActivity.class);
-                startActivity(intent);
-                //kill this
-                finish();
-            }
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(MainActivity.this, TranslatorActivity.class);
+            startActivity(intent);
+            //kill this
+            finish();
         },5000);
     }
 }
