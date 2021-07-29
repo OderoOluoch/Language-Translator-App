@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.SignupActivity">
 
+    <ProgressBar
+        android:id="@+id/SignupProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/SignupButton"
+        app:layout_constraintStart_toEndOf="@+id/SignupAlreadyMemberTextView" />
+
     <EditText
         android:id="@+id/SignupEmailAddressEditText"
         android:layout_width="match_parent"
